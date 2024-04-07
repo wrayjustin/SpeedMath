@@ -1366,6 +1366,14 @@
                         } else if (a.percentage < b.percentage) {
                             return -1;
                         } else {
+                            if ((a.time != 0) && (a.correct != 0) && (b.time != 0) && (b.correct != 0)) {
+                                if (Math.round(a.time / a.correct) < Math.round(b.time/b.correct)) {
+                                    return 1;
+                                } else if (Math.round(a.time / a.correct) > Math.round(b.time / b.correct)) {
+                                    return -1;
+                                }
+                            }
+
                             if (a.correct > b.correct) {
                                 return 1;
                             } else if (a.correct < b.correct) {
